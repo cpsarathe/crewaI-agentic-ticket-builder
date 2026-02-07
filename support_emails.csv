@@ -1,0 +1,16 @@
+email_id,subject,body,sender_email,timestamp,priority
+EM016,App Crash Report: iOS 17.2,CRITICAL ISSUE. The app crashes immediately upon launch on my iPhone 15 Pro Max. I have tried reinstalling twice. This started after the v2.2.1 update this morning.,executive_director@fintech-global.com,13/11/23 9:15,High
+EM017,Feature Request: Kanban Board,"Hi team, big fan of the list view, but a Kanban board would really help our agile workflow. Is this on the roadmap?",scrum_master_dave@agile.co.uk,13/11/23 14:45,Low
+EM018,Login Issue - OAuth Google,"I can't sign in using the 'Continue with Google' button. It just spins and times out. My manual login works fine though. Android 14, Pixel 6a.",tester_01@beta-users.org,14/11/23 8:30,Medium
+EM019,Suggestion for Improvement: Font Size,The font size on the dashboard is too small for accessibility. Please add a setting to increase text size. It is very hard to read on tablets.,accessibility_advocate@nonprofit.org,14/11/23 11:20,
+EM020,Data Loss Problem - URGENT,"I lost 4 hours of data input! The 'Save' button was greyed out and then the app force closed. When I reopened, everything was gone. iPad Air 5th Gen.",stressed_student@university.edu,15/11/23 2:10,High
+EM021,Billing Inquiry - Invoice #9921,"Hello, our accounting department needs a VAT invoice for the last transaction. The automated email didn't include it. Please send ASAP.",finance@corporate-logistics.com,15/11/23 10:00,Low
+EM022,Bug: Dark Mode Glitch,"When I switch to dark mode, the text in the input fields remains black, making it invisible against the dark background. Samsung S22, OneUI 6.0.",night_owl_coder@dev.net,16/11/23 16:45,Medium
+EM023,cant find my old projects,hey guys i updated the app and now the 'Archived Projects' folder is missing?? where did it go pls help,confused_artist@gmail.com,16/11/23 19:30,
+EM024,Security Vulnerability Report,I believe I found an IDOR vulnerability in your API endpoint /api/v1/user/data. I can view other users' project titles if I change the ID in the request. Please contact me securely.,whitehat_hacker@security-research.io,17/11/23 8:00,High
+EM025,Feedback on new update,"To be honest, the new UI is a step backward. It takes 3 clicks to do what used to take 1. Not a bug, just bad UX.",ux_designer@creative-agency.com,17/11/23 12:15,Low
+EM026,App Freeze on Large Files,"If I try to upload a PDF larger than 50MB, the app freezes completely. I have to force quit. Windows 11 Desktop App v2.2.0.",architect_john@build-struct.com,18/11/23 9:40,Medium
+EM027,Partner Integration Request,We are a CRM platform with 10k users. We would love to build a native integration with your tool. Who is the best person to speak with?,partnerships@crm-giant.com,18/11/23 15:00,
+EM028,Login Issue: 2FA not sending,I am not receiving the SMS code for 2-Factor Authentication. I have tried 'Resend Code' 5 times. Carrier: Verizon. Region: US-East.,remote_worker_ca@consulting.com,19/11/23 7:20,High
+EM029,Typo in welcome screen,"Just a heads up, the word 'Successfully' is spelled 'Succesfully' on the onboarding screen. Minor thing but thought I'd let you know.",grammar_police@editor.com,19/11/23 13:10,Low
+EM030,SYSTEM ERROR CODE 404,I am getting a generic 404 error when trying to access the 'Settings' page. This happens on both Web and Mobile. Account ID: 88219.,sysadmin@tech-start.io,20/11/23 8:55,High

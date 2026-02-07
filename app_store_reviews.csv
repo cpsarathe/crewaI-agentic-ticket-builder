@@ -1,0 +1,11 @@
+Review ID,App Name,User Name,Rating,Review Text,Date
+1,AppOne,john_doe,5,"Great app! Really helps me organize my tasks.",2023-01-15
+2,AppTwo,jane_smith,4,"Useful but could use some improvements in UI.",2023-01-16
+3,AppOne,bob_jones,3,"The app is okay, but crashes sometimes.",2023-01-17
+4,AppThree,linda_clark,2,"Not very intuitive to use.",2023-01-18
+5,AppTwo,alice_wong,5,"Excellent features and easy to navigate.",2023-01-19
+6,AppOne,charles_martin,1,"Keeps logging me out unexpectedly.",2023-01-20
+7,AppThree,diana_lee,4,"Good app but needs more customization options.",2023-01-21
+8,AppTwo,emily_davis,3,"Average experience, some bugs present.",2023-01-22
+9,AppOne,frank_harris,5,"Loved the recent update, very smooth now.",2023-01-23
+10,AppThree,george_white,2,"Too many ads, ruins the experience.",2023-01-24
