@@ -19,7 +19,12 @@ from src.tasks.tasks import quality_check_task
 
 from crewai import Process
 
+from src.config import AgentConfig, load_config
+
 def build_crew() -> Crew:
+    # Load UI-driven config (ui_config.json) with defaults.
+    agent_cfg = AgentConfig.from_dict(load_config())
+
     #researcher = build_researcher()
     #tasks = build_tasks(researcher)
     csvReaderAgent = csv_reader_agent()
@@ -27,13 +32,13 @@ def build_crew() -> Crew:
     csvAppStoreReviewTask =  csv_app_store_review_tasks(csvReaderAgent)
     csvSupportEmailTask =  csv_support_email_review_tasks(csvReaderAgent)
 
-    feedbackClassifierAppStoreAgent = feedback_classifier_agent()
+    feedbackClassifierAppStoreAgent = feedback_classifier_agent(agent_cfg)
     feedbackClassifierAppStoreTask =  classify_task(feedbackClassifierAppStoreAgent,context_tasks=[csvAppStoreReviewTask])
     
-    feedbackClassifierEmailSupportAgent = feedback_classifier_agent()
+    feedbackClassifierEmailSupportAgent = feedback_classifier_agent(agent_cfg)
     feedbackClassifierEmailSupportTask =  classify_task(feedbackClassifierEmailSupportAgent,context_tasks=[csvSupportEmailTask])
     
-    bugAnalyzerAgent = bug_analyzer_agent()
+    bugAnalyzerAgent = bug_analyzer_agent(agent_cfg)
     bugAnalysisTask =  bug_analysis_task(bugAnalyzerAgent,context_tasks=[feedbackClassifierAppStoreTask,feedbackClassifierEmailSupportTask])
     
     featureExtractorAgent = feature_extractor_agent()

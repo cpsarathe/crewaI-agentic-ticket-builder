@@ -1,0 +1,11 @@
+{
+  "classification_threshold": 0.69,
+  "default_priority": "Medium",
+  "priority_map": {
+    "Bug": "High",
+    "Feature Request": "Medium",
+    "Complaint": "High",
+    "Praise": "Low",
+    "Other": "Low"
+  }
+}

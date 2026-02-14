@@ -1,0 +1,550 @@
+2026-02-14 21:13:20,289 INFO smoke run_id=- msg=hello from smoke test
+2026-02-14 21:19:35,542 INFO src.main run_id=- msg=main started
+2026-02-14 21:19:35,760 ERROR crewai.utilities.llm_utils run_id=- msg=Error instantiating LLM from environment/fallback: ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-02-14 21:19:35,760 ERROR src.main run_id=- msg=crew kickoff failed
+Traceback (most recent call last):
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llm.py", line 413, in __new__
+    native_class(model=model_string, provider=provider, **kwargs_copy),
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 250, in __init__
+    client_config = self._get_client_params()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 338, in _get_client_params
+    raise ValueError("OPENAI_API_KEY is required")
+ValueError: OPENAI_API_KEY is required
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/src/main.py", line 14, in main
+    crew = build_crew()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/src/crew/app_review_crew.py", line 30, in build_crew
+    csvReaderAgent = csv_reader_agent()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/src/agents/csv_reader_agent.py", line 5, in csv_reader_agent
+    return Agent(
+        role="CSVReader",
+    ...<4 lines>...
+        allow_delegation=False
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/internal/meta.py", line 57, in post_init_setup_with_extensions
+    result = original_func(self)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 274, in post_init_setup
+    self.llm = create_llm(self.llm)
+               ~~~~~~~~~~^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/llm_utils.py", line 36, in create_llm
+    return _llm_via_environment_or_fallback()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/llm_utils.py", line 182, in _llm_via_environment_or_fallback
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/llm_utils.py", line 177, in _llm_via_environment_or_fallback
+    return LLM(**llm_params)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llm.py", line 418, in __new__
+    raise ImportError(f"Error importing native provider: {e}") from e
+ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-02-14 21:20:25,916 INFO diag run_id=- msg=diagnostic: starting build_crew import
+2026-02-14 21:20:26,634 INFO crewai.cli.config run_id=- msg=Using config path: /Users/chandraprakashsarathe/.config/crewai/settings.json
+2026-02-14 21:20:27,226 ERROR crewai.utilities.llm_utils run_id=- msg=Error instantiating LLM from environment/fallback: ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-02-14 21:25:52,488 INFO diag run_id=- msg=diag: starting
+2026-02-14 21:25:53,287 INFO crewai.cli.config run_id=- msg=Using config path: /Users/chandraprakashsarathe/.config/crewai/settings.json
+2026-02-14 21:25:53,705 INFO diag run_id=- msg=diag: build_crew imported
+2026-02-14 21:25:53,864 ERROR crewai.utilities.llm_utils run_id=- msg=Error instantiating LLM from environment/fallback: ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-02-14 21:34:30,789 INFO src.main run_id=f6dd856e msg=main started
+2026-02-14 21:34:31,054 INFO root run_id=f6dd856e msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:34:31,718 INFO httpx run_id=f6dd856e msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:34:31,721 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:31,721 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:31,732 INFO root run_id=f6dd856e msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:34:32,037 INFO httpx run_id=f6dd856e msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:34:32,038 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:32,039 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:32,047 INFO root run_id=f6dd856e msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:34:32,375 INFO httpx run_id=f6dd856e msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:34:32,376 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:32,376 ERROR root run_id=f6dd856e msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:34:32,402 ERROR src.main run_id=f6dd856e msg=crew kickoff failed
+Traceback (most recent call last):
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/src/main.py", line 15, in main
+    result = crew.kickoff()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 743, in kickoff
+    result = self._run_sequential_process()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 1150, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 1236, in _execute_tasks
+    task_output = task.execute_sync(
+        agent=exec_data.agent,
+        context=context,
+        tools=exec_data.tools,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 499, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 740, in _execute_core
+    raise e  # Re-raise the exception after emitting the event
+    ^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 671, in _execute_core
+    result = agent.execute_task(
+        task=self,
+        context=context,
+        tools=tools,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 493, in execute_task
+    result = self.execute_task(task, context, tools)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 493, in execute_task
+    result = self.execute_task(task, context, tools)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 492, in execute_task
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 459, in execute_task
+    result = self._execute_without_timeout(task_prompt, task)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 568, in _execute_without_timeout
+    return self.agent_executor.invoke(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<4 lines>...
+        }
+        ^
+    )["output"]
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 207, in invoke
+    formatted_answer = self._invoke_loop()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 305, in _invoke_loop
+    return self._invoke_loop_native_tools()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 579, in _invoke_loop_native_tools
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 498, in _invoke_loop_native_tools
+    answer = get_llm_response(
+        llm=self.llm,
+    ...<9 lines>...
+        verbose=self.agent.verbose,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/agent_utils.py", line 372, in get_llm_response
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/agent_utils.py", line 362, in get_llm_response
+    answer = llm.call(
+        messages,
+    ...<5 lines>...
+        response_model=response_model,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 410, in call
+    return self._call_completions(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        messages=formatted_messages,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        response_model=response_model,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 450, in _call_completions
+    return self._handle_completion(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        params=completion_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        response_model=response_model,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 1687, in _handle_completion
+    raise e from e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 1585, in _handle_completion
+    response: ChatCompletion = self.client.chat.completions.create(**params)
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1037, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:29,534 INFO src.main run_id=e0ddd791 msg=main started
+2026-02-14 21:35:29,620 INFO root run_id=e0ddd791 msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:35:30,005 INFO httpx run_id=e0ddd791 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:35:30,007 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,007 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,019 INFO root run_id=e0ddd791 msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:35:30,316 INFO httpx run_id=e0ddd791 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:35:30,317 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,318 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,326 INFO root run_id=e0ddd791 msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:35:30,596 INFO httpx run_id=e0ddd791 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-14 21:35:30,597 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,597 ERROR root run_id=e0ddd791 msg=OpenAI API call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:30,622 ERROR src.main run_id=e0ddd791 msg=crew kickoff failed
+Traceback (most recent call last):
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/src/main.py", line 15, in main
+    result = crew.kickoff()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 743, in kickoff
+    result = self._run_sequential_process()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 1150, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/crew.py", line 1236, in _execute_tasks
+    task_output = task.execute_sync(
+        agent=exec_data.agent,
+        context=context,
+        tools=exec_data.tools,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 499, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 740, in _execute_core
+    raise e  # Re-raise the exception after emitting the event
+    ^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/task.py", line 671, in _execute_core
+    result = agent.execute_task(
+        task=self,
+        context=context,
+        tools=tools,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 493, in execute_task
+    result = self.execute_task(task, context, tools)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 493, in execute_task
+    result = self.execute_task(task, context, tools)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 492, in execute_task
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 459, in execute_task
+    result = self._execute_without_timeout(task_prompt, task)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agent/core.py", line 568, in _execute_without_timeout
+    return self.agent_executor.invoke(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<4 lines>...
+        }
+        ^
+    )["output"]
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 207, in invoke
+    formatted_answer = self._invoke_loop()
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 305, in _invoke_loop
+    return self._invoke_loop_native_tools()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 579, in _invoke_loop_native_tools
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/agents/crew_agent_executor.py", line 498, in _invoke_loop_native_tools
+    answer = get_llm_response(
+        llm=self.llm,
+    ...<9 lines>...
+        verbose=self.agent.verbose,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/agent_utils.py", line 372, in get_llm_response
+    raise e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/utilities/agent_utils.py", line 362, in get_llm_response
+    answer = llm.call(
+        messages,
+    ...<5 lines>...
+        response_model=response_model,
+    )
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 410, in call
+    return self._call_completions(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        messages=formatted_messages,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        response_model=response_model,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 450, in _call_completions
+    return self._handle_completion(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        params=completion_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        response_model=response_model,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 1687, in _handle_completion
+    raise e from e
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/crewai/llms/providers/openai/completion.py", line 1585, in _handle_completion
+    response: ChatCompletion = self.client.chat.completions.create(**params)
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chandraprakashsarathe/Documents/cp/learning/agentic-ai/edureka/capstone-crewai/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1037, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************C-IA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-02-14 21:35:46,361 INFO src.main run_id=cce6442b msg=main started
+2026-02-14 21:35:46,616 INFO root run_id=cce6442b msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:35:47,744 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:35:47,765 INFO root run_id=cce6442b msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 21:35:51,966 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:35:51,979 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 514, 'completion_tokens': 312, 'total_tokens': 826}
+2026-02-14 21:36:06,220 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:06,226 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 500, 'completion_tokens': 881, 'total_tokens': 1381}
+2026-02-14 21:36:07,093 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:07,097 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 180, 'completion_tokens': 10, 'total_tokens': 190}
+2026-02-14 21:36:14,943 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:14,955 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 1089, 'completion_tokens': 515, 'total_tokens': 1604}
+2026-02-14 21:36:17,941 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:17,943 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 1024, 'completion_tokens': 136, 'total_tokens': 1160}
+2026-02-14 21:36:23,026 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:23,037 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 837, 'completion_tokens': 338, 'total_tokens': 1175}
+2026-02-14 21:36:23,044 INFO root run_id=cce6442b msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 21:36:29,552 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:29,574 INFO root run_id=cce6442b msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 21:36:34,633 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:34,636 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 932, 'completion_tokens': 349, 'total_tokens': 1281}
+2026-02-14 21:36:45,690 INFO httpx run_id=cce6442b msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 21:36:45,707 INFO root run_id=cce6442b msg=OpenAI API usage: {'prompt_tokens': 455, 'completion_tokens': 862, 'total_tokens': 1317}
+2026-02-14 21:36:45,729 INFO src.main run_id=cce6442b msg=crew kickoff finished
+2026-02-14 21:36:45,729 INFO src.main run_id=cce6442b msg=Review Summary:
+
+Ticket Id: 3  
+Title: AppOne intermittent crashes during normal usage  
+Quality Check Score: 7/10  
+Comments: The ticket identifies the issue clearly as intermittent crashes during normal use. However, it lacks platform-specific information and detailed steps to reproduce the crash, which are important for precise debugging and prioritization.
+
+Ticket Id: 4  
+Title: AppThree interface is not intuitive for users  
+Quality Check Score: 6/10  
+Comments: The complaint about the interface being unintuitive is noted, but the description lacks specific examples or details about which parts of the interface cause confusion. No platform info or user scenarios are provided, limiting the ticket’s usefulness.
+
+Ticket Id: 6  
+Title: AppOne logs out users unexpectedly during usage  
+Quality Check Score: 7/10  
+Comments: This bug is clearly stated and mentions unexpected logout during usage. However, no platform details and thorough reproduction steps are provided, which are necessary for effective troubleshooting.
+
+Ticket Id: 8  
+Title: AppTwo experiences unspecified bugs affecting user experience  
+Quality Check Score: 4/10  
+Comments: The ticket is very vague, citing “unspecified bugs” without concrete examples or symptoms. It does not provide platform info or reproduction steps, making it difficult to prioritize or address the problem.
+
+Ticket Id: 10  
+Title: AppThree user experience disrupted by excessive ads  
+Quality Check Score: 7/10  
+Comments: The complaint about excessive ads disrupting user experience is clear. However, details such as ad frequency, placement, and platform specifics are missing, which would help in assessing the severity and possible solutions.
+
+Ticket Id: -01  
+Title: Enhance UI for AppTwo to improve user satisfaction and retention  
+Quality Check Score: 8/10  
+Comments: The feature request outlines the improvement goal and its potential impact on user satisfaction and retention, with medium business value noted. More detailed description of desired UI improvements or user feedback could enhance completeness.
+
+Ticket Id: -02  
+Title: Add more customization options to AppThree to improve engagement  
+Quality Check Score: 8/10  
+Comments: The feature request clearly states the purpose of adding customization options and their expected user impact and business value. Including examples of preferred customizations or user demand data would strengthen the case.
+
+---
+
+Complete Ticket Content:
+
+Ticket Id: 3  
+Category: Bug  
+Priority: High  
+Technical Details: Platform Info: Not specified; Steps to Reproduce: Use the app normally until it crashes sometimes.  
+Title: AppOne intermittent crashes during normal usage
+
+Ticket Id: 4  
+Category: Complaint  
+Priority: High  
+Technical Details: Platform Info: Not specified; Steps to Reproduce: Use the app and notice the unintuitive interface.  
+Title: AppThree interface is not intuitive for users
+
+Ticket Id: 6  
+Category: Bug  
+Priority: High  
+Technical Details: Platform Info: Not specified; Steps to Reproduce: Use the app and observe it logging out unexpectedly during usage.  
+Title: AppOne logs out users unexpectedly during usage
+
+Ticket Id: 8  
+Category: Bug  
+Priority: High  
+Technical Details: Platform Info: Not specified; Steps to Reproduce: Use the app and encounter some unspecified bugs affecting experience.  
+Title: AppTwo experiences unspecified bugs affecting user experience
+
+Ticket Id: 10  
+Category: Complaint  
+Priority: High  
+Technical Details: Platform Info: Not specified; Steps to Reproduce: Use the app and experience frequent ads disrupting usage.  
+Title: AppThree user experience disrupted by excessive ads
+
+Ticket Id: -01  
+Category: Feature Request  
+Priority: Medium  
+Technical Details: Feature Request: Improvements in UI for AppTwo; User Impact/Demand: Medium; Business Value: Medium value - UI improvements can enhance user satisfaction and retention, affecting a moderate user base.  
+Title: Enhance UI for AppTwo to improve user satisfaction and retention
+
+Ticket Id: -02  
+Category: Feature Request  
+Priority: Medium  
+Technical Details: Feature Request: More customization options for AppThree; User Impact/Demand: Medium; Business Value: Medium value - customization options can attract and retain users who prefer personalized experiences, moderately improving engagement and satisfaction.  
+Title: Add more customization options to AppThree to improve engagement
+2026-02-14 22:06:04,364 INFO src.main run_id=6a311fc1 msg=main started
+2026-02-14 22:06:04,674 INFO root run_id=6a311fc1 msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 22:06:09,143 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:09,167 INFO root run_id=6a311fc1 msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 22:06:13,810 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:13,818 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 514, 'completion_tokens': 312, 'total_tokens': 826}
+2026-02-14 22:06:25,908 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:25,915 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 500, 'completion_tokens': 881, 'total_tokens': 1381}
+2026-02-14 22:06:26,768 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:26,782 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 180, 'completion_tokens': 16, 'total_tokens': 196}
+2026-02-14 22:06:33,406 INFO src.main run_id=3ce359ae msg=main started
+2026-02-14 22:06:33,684 INFO root run_id=3ce359ae msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 22:06:34,869 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:34,894 INFO root run_id=3ce359ae msg=OpenAI: Successfully validated tool 'read_csv_file'
+2026-02-14 22:06:36,074 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:36,099 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 1095, 'completion_tokens': 639, 'total_tokens': 1734}
+2026-02-14 22:06:38,123 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:38,125 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 1030, 'completion_tokens': 103, 'total_tokens': 1133}
+2026-02-14 22:06:39,046 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:39,048 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 514, 'completion_tokens': 279, 'total_tokens': 793}
+2026-02-14 22:06:42,693 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:42,713 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 928, 'completion_tokens': 258, 'total_tokens': 1186}
+2026-02-14 22:06:42,732 INFO root run_id=6a311fc1 msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 22:06:46,504 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:46,528 INFO root run_id=6a311fc1 msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 22:06:49,920 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:49,927 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 768, 'completion_tokens': 267, 'total_tokens': 1035}
+2026-02-14 22:06:56,248 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:56,268 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 467, 'completion_tokens': 881, 'total_tokens': 1348}
+2026-02-14 22:06:57,478 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:57,479 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 180, 'completion_tokens': 14, 'total_tokens': 194}
+2026-02-14 22:06:57,543 INFO httpx run_id=6a311fc1 msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:06:57,560 INFO root run_id=6a311fc1 msg=OpenAI API usage: {'prompt_tokens': 375, 'completion_tokens': 571, 'total_tokens': 946}
+2026-02-14 22:06:57,569 INFO src.main run_id=6a311fc1 msg=crew kickoff finished
+2026-02-14 22:06:57,569 INFO src.main run_id=6a311fc1 msg=Ticket Id: 3  
+Title: App crashes occasionally during normal use  
+Quality Check Score: 7/10  
+Review: The ticket correctly identifies a high-priority bug with a brief steps to reproduce ("Use the app normally; occasional crashes occur"). However, it lacks platform information and detailed reproduction steps or logs that would be helpful for debugging. The severity is appropriately marked as high. Including environment details and clearer repro steps would improve completeness.
+
+Ticket Id: 4  
+Title: App is not intuitive to use  
+Quality Check Score: 6/10  
+Review: This is labeled as a complaint with high priority and includes a step to reproduce ("Attempt to use the app; find it not intuitive"). However, it lacks specifics on which parts of the UI or flows are problematic, making it vague. Platform information is missing. Adding more concrete examples or user feedback excerpts would enhance clarity and usefulness.
+
+Ticket Id: 6  
+Title: App logs out users unexpectedly  
+Quality Check Score: 7/10  
+Review: The ticket presents a high-priority bug with a concise step to reproduce ("Use the app; observe unexpected logouts"). Platform info is missing, and more detailed reproduction steps or contexts (e.g., after idle time, after certain actions) would make it stronger. Severity classification fits the issue.
+
+Ticket Id: 8  
+Title: Various bugs cause degraded user experience  
+Quality Check Score: 5/10  
+Review: This bug report is very generic and lacks specificity. "Various bugs" and "notice some bugs affecting experience" is too broad for actionable investigation. There are no detailed reproduction steps or platform info. Severity is high but the ticket needs much more detail to be useful for fixing.
+
+Ticket Id: 10  
+Title: Excessive ads ruin user experience  
+Quality Check Score: 6/10  
+Review: Listed as a complaint with high priority and states "Use the app and face disruptive ads." This lacks detail about what qualifies as excessive or disruptive, which ads are involved, and on which platform. More user context would improve the ticket quality.
+
+Ticket Id: 2  
+Title: UI improvements requested by users  
+Quality Check Score: 4/10  
+Review: A feature request with medium priority but no technical details or specific requested improvements described. The description is too vague to guide implementation.
+
+Ticket Id: 7  
+Title: Add more customization options to app  
+Quality Check Score: 5/10  
+Review: Another feature request with medium priority, but lacks any technical details or specifics about which customization options are desired. This limits the ticket's completeness.
+
+Summary: The tickets generally identify relevant issues and priorities but suffer from missing platform info, detailed reproduction steps, and specific descriptions, which reduce their quality and actionable value. Enhancing detail and clarity is recommended for better triaging and resolution.
+2026-02-14 22:07:07,766 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:07,779 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 1093, 'completion_tokens': 750, 'total_tokens': 1843}
+2026-02-14 22:07:13,246 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:13,290 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 1028, 'completion_tokens': 343, 'total_tokens': 1371}
+2026-02-14 22:07:18,161 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:18,176 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 1279, 'completion_tokens': 322, 'total_tokens': 1601}
+2026-02-14 22:07:18,192 INFO root run_id=3ce359ae msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 22:07:23,356 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:23,388 INFO root run_id=3ce359ae msg=OpenAI: Successfully validated tool 'save_tickets_to_file'
+2026-02-14 22:07:27,553 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:27,559 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 900, 'completion_tokens': 323, 'total_tokens': 1223}
+2026-02-14 22:07:38,417 INFO httpx run_id=3ce359ae msg=HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-14 22:07:38,449 INFO root run_id=3ce359ae msg=OpenAI API usage: {'prompt_tokens': 439, 'completion_tokens': 739, 'total_tokens': 1178}
+2026-02-14 22:07:38,467 INFO src.main run_id=3ce359ae msg=crew kickoff finished
+2026-02-14 22:07:38,467 INFO src.main run_id=3ce359ae msg=Ticket Id: 3
+Title: AppOne crashes occasionally causing poor user experience
+Quality Check Score: 6/10
+Review Summary: The ticket identifies a high severity bug of app crashes affecting usability, which is important. However, it lacks explicit "Steps to Reproduce," platform information, and detailed technical context which are critical for debugging. The description is somewhat vague and incomplete for immediate action by developers.
+
+Ticket Id: 4
+Title: AppThree UI not intuitive causing high user dissatisfaction
+Quality Check Score: 5/10
+Review Summary: This complaint highlights significant user dissatisfaction due to UI issues. It appropriately sets the severity as high but is missing detailed reproduction steps and platform specifics. The ticket description is high-level and lacks concrete examples or actionable points, limiting its usefulness.
+
+Ticket Id: 6
+Title: AppOne logs out users unexpectedly disrupting sessions
+Quality Check Score: 7/10
+Review Summary: This bug ticket provides a clearer issue (unexpected logout behavior), severity level, and impact on user experience. However, it still lacks detailed steps to reproduce and platform info. Adding these details would improve reproducibility and debugging ease.
+
+Ticket Id: 8
+Title: AppTwo has unspecified bugs causing average user experience
+Quality Check Score: 4/10
+Review Summary: The ticket is too vague about the bugs, providing no specifics on the bugs, reproduction steps, or platform. Though it sets high severity, the lack of clarity and detail severely limits its effectiveness for the development team.
+
+Ticket Id: 10
+Title: AppThree excessive ads degrade user experience significantly
+Quality Check Score: 6/10
+Review Summary: This complaint correctly identifies a high severity issue impacting user experience with excessive ads. Like others, it lacks detailed repro steps and platform info. The description could be enhanced by including specific examples or metrics to quantify the issue.
+
+Ticket Id: 2
+Title: Feature request: UI improvements for AppTwo
+Quality Check Score: 7/10
+Review Summary: The feature request is clear in its ask for UI improvements to enhance usability and satisfaction, fitting medium priority. It appropriately notes no reproduction steps needed. However, more detail on desired improvements would increase its value.
+
+Ticket Id: 7
+Title: Feature request: Add more customization options in AppThree
+Quality Check Score: 7/10
+Review Summary: This feature request is concise and clear about adding customization options with medium priority. Like the previous, it states no reproduction needed but would benefit from more specificity about which customization aspects are requested.
+
+Overall, the tickets broadly identify issues and feature requests with appropriate priority but generally lack detailed reproduction steps, platform info, and technical context that would make them complete and actionable.
+
+Complete reviewed content:
+
+Ticket Id: 3
+Title: AppOne crashes occasionally causing poor user experience
+Quality Check Score: 6/10
+
+Ticket Id: 4
+Title: AppThree UI not intuitive causing high user dissatisfaction
+Quality Check Score: 5/10
+
+Ticket Id: 6
+Title: AppOne logs out users unexpectedly disrupting sessions
+Quality Check Score: 7/10
+
+Ticket Id: 8
+Title: AppTwo has unspecified bugs causing average user experience
+Quality Check Score: 4/10
+
+Ticket Id: 10
+Title: AppThree excessive ads degrade user experience significantly
+Quality Check Score: 6/10
+
+Ticket Id: 2
+Title: Feature request: UI improvements for AppTwo
+Quality Check Score: 7/10
+
+Ticket Id: 7
+Title: Feature request: Add more customization options in AppThree
+Quality Check Score: 7/10
