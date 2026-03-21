@@ -1,44 +1,20 @@
 module.exports = {
-  parserPreset: {
-    parserOpts: {
-      headerPattern: /^((?:of|ofscm)-\d+):?\s+(.+)$/i,
-      headerCorrespondence: ['ticket', 'subject']
-    }
-  },
+  extends: [],
   rules: {
-    'header-min-length': [2, 'always', 15],
-    'header-max-length': [2, 'always', 150],
+    'ticket-format': [2, 'always'],
   },
   plugins: [
     {
       rules: {
-        'ticket-format': (parsed) => {
-          const { header } = parsed;
-          const pattern = /^(of-\d+|ofscm-\d+):?\s+.{10,}$/i;
-
-          if (!pattern.test(header)) {
-            return [
-              false,
-              `Commit message must match format: <TICKET-ID> <subject> or <TICKET-ID>: <subject>
-
-Examples:
-  ✓ OF-1234 add user authentication feature
-  ✓ OF-1234: add user authentication feature
-  ✓ of-1234 add user authentication feature
-
-
-Rules:
-  - Must start with OF-XXX or OFSCM-XXX (case-insensitive)
-  - Subject must be at least 10 characters`
-            ];
-          }
-          return [true];
-        }
-      }
-    }
+        'ticket-format': ({ raw }) => {
+          const ticketPattern = /^OF-\d{4}\s+.+/;
+          const isValid = ticketPattern.test(raw);
+          return [
+            isValid,
+            'Commit message must start with "OF-XXXX " followed by description (e.g., "OF-1234 add feature")'
+          ];
+        },
+      },
+    },
   ],
-  rules: {
-    'ticket-format': [2, 'always'],
-    'header-max-length': [2, 'always', 150],
-  }
 };
