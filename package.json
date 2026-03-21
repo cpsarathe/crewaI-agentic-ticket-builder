@@ -1,0 +1,8 @@
+{
+  "name": "crewaI-agentic-ticket-builder",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3"
+  }
+}
